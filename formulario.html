@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 300px;
+            padding: 16px;
+            background-color: #F5EA98;
+            color: #011140;
+            border-radius: 5px;
+        }
+        .form-container input[type=text], .form-container input[type=email] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+        .form-container button {
+            background-color: #3DEBA8;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        .form-container button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Formulario de Registro</h2>
+
+<form action="/submit" class="form-container">
+    <label for="name"><b>Nombre</b></label>
+    <input type="text" placeholder="Ingresa tu nombre" name="name" required>
+
+    <label for="email"><b>Correo Electrónico</b></label>
+    <input type="email" placeholder="Ingresa tu correo electrónico" name="email" required>
+
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>
