@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./Imgs/logo-removebg-preview.ico"
+      type="image/x-icon"
+    />
+    <title>Document</title>
+
+    <!--Bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .formcito_registro {
+      }
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      /* Style the tab */
+      .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        width: 30%;
+        height: 300px;
+      }
+
+      /* Style the buttons inside the tab */
+      .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current "tab button" class */
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 1px solid #ccc;
+        width: 70%;
+        border-left: none;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formcito_registro">
+      <h2>Formulario de registro</h2>
+      <p>Toate tu tiempo para contestar a la preguntas</p>
+
+      <div class="tab">
+        <button
+          class="tablinks"
+          onclick="openCity(event, 'London')"
+          id="defaultOpen"
+        >
+          Datos Generales
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">
+          Datos Profesionales
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+          Referencias y contacto
+        </button>
+      </div>
+
+      <div id="London" class="tabcontent">
+        <!--HAy que verificar el formulario aqui-->
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom01">Nombres</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="Ej: Alejandro "
+                value=""
+                required
+              />
+              <div class="valid-feedback">Que lindo nombre !</div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom02">Apellido Paterno</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                placeholder="Last name"
+                value=""
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom02">Apellido Materno</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                placeholder="Last name"
+                value=""
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="validationCustomUsername">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustomUsername"
+                  placeholder="Username"
+                  aria-describedby="inputGroupPrepend"
+                  required
+                />
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom03">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom03"
+                placeholder="City"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid city.</div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom04">State</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom04"
+                placeholder="State"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid state.</div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom05">Zip</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom05"
+                placeholder="Zip"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid zip.</div>
+            </div>
+          </div>
+
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="customFileLang"
+              lang="es"
+            />
+            <label class="custom-file-label" for="customFileLang"
+              >Seleccionar Archivo</label
+            >
+          </div>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="invalidCheck"
+                required
+              />
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+      </div>
+
+      <div id="Paris" class="tabcontent">
+        <h3>Datos Profesionales</h3>
+        <p>Patos profesionales</p>
+      </div>
+
+      <div id="Tokyo" class="tabcontent">
+        <h3>Referencias Laborales</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+    </div>
+
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+
+    <script id="Validacion">
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName("needs-validation");
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(
+              forms,
+              function (form) {
+                form.addEventListener(
+                  "submit",
+                  function (event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add("was-validated");
+                  },
+                  false
+                );
+              }
+            );
+          },
+          false
+        );
+      })();
+    </script>
+
+    <div class="botas">
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+  </body>
+</html>
