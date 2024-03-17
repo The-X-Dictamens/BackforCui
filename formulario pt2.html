@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</body><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -41,14 +41,18 @@
             var colonia = document.getElementById("colonia").value;
             var codigo_postal = document.getElementById("codigo_postal").value;
             var numero_exterior = document.getElementById("numero_exterior").value;
+            var comprobante_domicilio = document.getElementById("comprobante_domicilio").files[0].name; // Obtener el nombre del archivo
 
             localStorage.setItem("calle", calle);
             localStorage.setItem("colonia", colonia);
             localStorage.setItem("codigo_postal", codigo_postal);
             localStorage.setItem("numero_exterior", numero_exterior);
+            localStorage.setItem("comprobante_domicilio", comprobante_domicilio); // Guardar el nombre del archivo
 
             window.location.href = "formulario pt3.html";
         });
     </script>
 </body>
+</html>
+
 </html>

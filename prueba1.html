@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario por Partes</title>
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="parte1">
+  <h2>Paso 1: Información Personal</h2>
+  <form id="formParte1">
+    Nombre: <input type="text" name="nombre"><br>
+    Apellido: <input type="text" name="apellido"><br>
+    <button type="button" onclick="mostrarParte(2)">Siguiente</button>
+  </form>
+</div>
+
+<div id="parte2" class="hidden">
+  <h2>Paso 2: Información de Contacto</h2>
+  <form id="formParte2">
+    Email: <input type="email" name="email"><br>
+    Teléfono: <input type="tel" name="telefono"><br>
+    <button type="button" onclick="mostrarParte(3)">Siguiente</button>
+    <button type="button" onclick="regresarParte(1)">Regresar</button>
+  </form>
+</div>
+
+<div id="parte3" class="hidden">
+  <h2>Paso 3: Confirmación</h2>
+  <p>Revise la información ingresada:</p>
+  <div id="infoConfirmacion"></div>
+  <button type="button" onclick="regresarParte(2)">Regresar</button>
+  <button type="button" onclick="submitForm()">Enviar</button>
+</div>
+
+<script>
+function mostrarParte(parte) {
+  document.getElementById('parte'+parte).classList.remove('hidden');
+  if (parte > 1) {
+    document.getElementById('parte'+(parte-1)).classList.add('hidden');
+  }
+}
+
+function regresarParte(parte) {
+  document.getElementById('parte'+parte).classList.remove('hidden');
+  document.getElementById('parte'+(parte+1)).classList.add('hidden');
+}
+
+function submitForm() {
+  // Aquí podrías enviar el formulario utilizando AJAX o realizar alguna otra acción
+  // Por simplicidad, solo mostraremos la información ingresada
+  var formParte1 = document.getElementById('formParte1');
+  var formParte2 = document.getElementById('formParte2');
+  var nombre = formParte1.elements['nombre'].value;
+  var apellido = formParte1.elements['apellido'].value;
+  var email = formParte2.elements['email'].value;
+  var telefono = formParte2.elements['telefono'].value;
+
+  document.getElementById('infoConfirmacion').innerHTML = `
+    <p>Nombre: ${nombre} ${apellido}</p>
+    <p>Email: ${email}</p>
+    <p>Teléfono: ${telefono}</p>
+  `;
+  document.getElementById('parte3').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
