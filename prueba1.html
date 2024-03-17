@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <title>Formulario por Partes</title>
 <style>
   .hidden {
     display: none;
   }
+
 </style>
 </head>
 <body>
@@ -15,28 +17,47 @@
 <div id="parte1">
   <h2>Paso 1: Información Personal</h2>
   <form id="formParte1">
-    Nombre: <input type="text" name="nombre"><br>
-    Apellido: <input type="text" name="apellido"><br>
+    Nombre: <input type="text" name="nombre" placeholder="Ej. Joaquin"><br>
+    Apellido Paterno: <input type="text" name="appat" placeholder="Rojas"><br>
+    Apellido Materno: <input type="text" name="apmat" placeholder="Gonzalez"><br>
+    Correo: <input type="email" name="email" placeholder="example@example.com"><br>
+    Contraseña: <input type="password" name="pass" placeholder="hola"><br>
     <button type="button" onclick="mostrarParte(2)">Siguiente</button>
   </form>
 </div>
 
 <div id="parte2" class="hidden">
-  <h2>Paso 2: Información de Contacto</h2>
+  <h2>Paso 2: Dirección</h2>
   <form id="formParte2">
-    Email: <input type="email" name="email"><br>
-    Teléfono: <input type="tel" name="telefono"><br>
+    Colonia: <input type="text" name="colonia"><br>
+    Número Exterior: <input type="text" name="num_exterior"><br>
+    Número Interior: <input type="text" name="num_interior"><br>
+    Calle: <input type="text" name="calle"><br>
+    Código Postal: <input type="text" name="codigo_postal"><br>
+    Comprobante de Domicilio: <input type="file" name="comprobante_domicilio"><br>
     <button type="button" onclick="mostrarParte(3)">Siguiente</button>
     <button type="button" onclick="regresarParte(1)">Regresar</button>
   </form>
 </div>
 
 <div id="parte3" class="hidden">
-  <h2>Paso 3: Confirmación</h2>
+  <h2>Paso 3: Documentos y Experiencia</h2>
+  <form id="formParte3">
+    Cédula Profesional: <input type="file" name="cedula_profesional"><br>
+    Título Profesional: <input type="file" name="titulo_profesional"><br>
+    Carta de Antecedentes No Penales: <input type="file" name="carta_antecedentes_no_penales"><br>
+    Años de Experiencia: <input type="number" name="anios_experiencia" placeholder="Ingrese años de experiencia"><br>
+    <button type="button" onclick="mostrarParte(4)">Siguiente</button>
+    <button type="button" onclick="regresarParte(2)">Regresar</button>
+  </form>
+</div>
+
+<div id="parte4" class="hidden">
+  <h2>Paso 4: Confirmación</h2>
   <p>Revise la información ingresada:</p>
   <div id="infoConfirmacion"></div>
-  <button type="button" onclick="regresarParte(2)">Regresar</button>
-  <button type="button" onclick="submitForm()">Enviar</button>
+  <button type="button" onclick="mostrarDatos()">Mostrar Datos</button>
+  <button type="button" onclick="guardarLocalStorage()">Enviar al Local Storage</button>
 </div>
 
 <script>
@@ -52,22 +73,82 @@ function regresarParte(parte) {
   document.getElementById('parte'+(parte+1)).classList.add('hidden');
 }
 
-function submitForm() {
-  // Aquí podrías enviar el formulario utilizando AJAX o realizar alguna otra acción
-  // Por simplicidad, solo mostraremos la información ingresada
+function mostrarDatos() {
   var formParte1 = document.getElementById('formParte1');
   var formParte2 = document.getElementById('formParte2');
-  var nombre = formParte1.elements['nombre'].value;
-  var apellido = formParte1.elements['apellido'].value;
-  var email = formParte2.elements['email'].value;
-  var telefono = formParte2.elements['telefono'].value;
+  var formParte3 = document.getElementById('formParte3');
 
-  document.getElementById('infoConfirmacion').innerHTML = `
-    <p>Nombre: ${nombre} ${apellido}</p>
-    <p>Email: ${email}</p>
-    <p>Teléfono: ${telefono}</p>
+  var nombre = formParte1.elements['nombre'].value;
+  var apellidoPaterno = formParte1.elements['appat'].value;
+  var apellidoMaterno = formParte1.elements['apmat'].value;
+  var email = formParte1.elements['email'].value;
+  var password = formParte1.elements['pass'].value;
+
+  var colonia = formParte2.elements['colonia'].value;
+  var numExterior = formParte2.elements['num_exterior'].value;
+  var numInterior = formParte2.elements['num_interior'].value;
+  var calle = formParte2.elements['calle'].value;
+  var codigoPostal = formParte2.elements['codigo_postal'].value;
+  var comprobanteDomicilio = formParte2.elements['comprobante_domicilio'].value;
+
+  var cedulaProfesional = formParte3.elements['cedula_profesional'].value;
+  var tituloProfesional = formParte3.elements['titulo_profesional'].value;
+  var cartaAntecedentesNoPenales = formParte3.elements['carta_antecedentes_no_penales'].value;
+  var aniosExperiencia = formParte3.elements['anios_experiencia'].value;
+
+  var infoConfirmacion = document.getElementById('infoConfirmacion');
+  infoConfirmacion.innerHTML = `
+    <p>Nombre: ${nombre}</p>
+    <p>Apellido Paterno: ${apellidoPaterno}</p>
+    <p>Apellido Materno: ${apellidoMaterno}</p>
+    <p>Correo: ${email}</p>
+    <p>Contraseña: ${password}</p>
+    <p>Colonia: ${colonia}</p>
+    <p>Número Exterior: ${numExterior}</p>
+    <p>Número Interior: ${numInterior}</p>
+    <p>Calle: ${calle}</p>
+    <p>Código Postal: ${codigoPostal}</p>
+    <p>Comprobante de Domicilio: ${comprobanteDomicilio}</p>
+    <p>Cédula Profesional: ${cedulaProfesional}</p>
+    <p>Título Profesional: ${tituloProfesional}</p>
+    <p>Carta de Antecedentes No Penales: ${cartaAntecedentesNoPenales}</p>
+    <p>Años de Experiencia: ${aniosExperiencia}</p>
   `;
-  document.getElementById('parte3').classList.remove('hidden');
+
+  document.getElementById('parte4').classList.remove('hidden');
+}
+
+function guardarLocalStorage() {
+  var formParte1 = document.getElementById('formParte1');
+  var formParte2 = document.getElementById('formParte2');
+  var formParte3 = document.getElementById('formParte3');
+
+  var data = {
+    personal: {
+      nombre: formParte1.elements['nombre'].value,
+      apellidoPaterno: formParte1.elements['appat'].value,
+      apellidoMaterno: formParte1.elements['apmat'].value,
+      email: formParte1.elements['email'].value,
+      password: formParte1.elements['pass'].value
+    },
+    direccion: {
+      colonia: formParte2.elements['colonia'].value,
+      numExterior: formParte2.elements['num_exterior'].value,
+      numInterior: formParte2.elements['num_interior'].value,
+      calle: formParte2.elements['calle'].value,
+      codigoPostal: formParte2.elements['codigo_postal'].value,
+      comprobanteDomicilio: formParte2.elements['comprobante_domicilio'].value
+    },
+    documentos: {
+      cedulaProfesional: formParte3.elements['cedula_profesional'].value,
+      tituloProfesional: formParte3.elements['titulo_profesional'].value,
+      cartaAntecedentesNoPenales: formParte3.elements['carta_antecedentes_no_penales'].value,
+      aniosExperiencia: formParte3.elements['anios_experiencia'].value
+    }
+  };
+
+  localStorage.setItem('formularioData', JSON.stringify(data));
+  alert('Los datos han sido guardados en el Local Storage.');
 }
 </script>
 
