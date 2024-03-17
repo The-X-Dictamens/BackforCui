@@ -11,26 +11,45 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-green">
         <a class="navbar-brand" href="#">
-          <img src="Imgs/Logito.png" width="30" height="30" alt="Cuidamor Logo">
-          <span class="navbar-brand ml-2">Cuidamor</span>
+            <img src="Imgs/Logito.png" width="30" height="30" alt="Cuidamor Logo">
+            <span class="navbar-brand ml-2">Cuidamor</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Servicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Quienes somos</a>
-            </li>
-          </ul>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                        <a class="dropdown-item" href="#">Cuidado de personas mayores</a>
+                        <a class="dropdown-item" href="#">Cuidado postoperatorio</a>
+                        <a class="dropdown-item" href="#">Enfermería a domicilio</a>
+                        <a class="dropdown-item" href="#">Asistencia médica especializada, etc.</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="preguntasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Preguntas Frecuentes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="preguntasDropdown">
+                        <a class="dropdown-item" href="#">Preguntas comunes sobre nuestros servicios</a>
+                        <a class="dropdown-item" href="#">Preguntas sobre horarios y disponibilidad</a>
+                        <!-- Agrega más opciones según sea necesario -->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
         </div>
-      </nav>
+    </nav>
+    
     <main>
         <section id="section1">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -140,22 +159,32 @@
     </main>
 
 
-    <footer class="bg-light py-3">
+    <footer class="bg-light">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-left">
-                    <h5>Contactos:</h5>
-                    <p>Phone: (123) 456-7890</p>
-                    <p>Email: info@cuidamor.com</p>
-                    <p>Address: Calle Falsa 123, Ciudad, País</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@cuidamor.com</li>
+                        <li>Address: Calle Falsa 123, Ciudad, País</li>
+                    </ul>
                 </div>
-                <div class="col-md-6 text-right">
-                    <p>Trabaja con nosotros</p>
-                    <p>Si quieres formar parte de nuestro equipo de trabajo, mándanos tu curriculum a <a href="mailto:jobs@cuidamor.com">jobs@cuidamor.com</a></p>
+                <div class="col-md-6">
+                    <h5>Enlaces útiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Condiciones de Uso</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                    </ul>
+                    <p class="mt-3">Si quieres formar parte de nuestro equipo de trabajo, mándanos tu curriculum a <a href="mailto:jobs@cuidamor.com">jobs@cuidamor.com</a></p>
                 </div>
             </div>
         </div>
     </footer>
+    
+    
+    
   
     <script src="landing.js"></script>
 <div class="botas">
