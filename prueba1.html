@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="prueba1.css">
+
 <title>Formulario por Partes</title>
 <style>
   .hidden {
@@ -34,7 +36,12 @@
     Número Interior: <input type="text" name="num_interior"><br>
     Calle: <input type="text" name="calle"><br>
     Código Postal: <input type="text" name="codigo_postal"><br>
-    Comprobante de Domicilio: <input type="file" name="comprobante_domicilio"><br>
+    Comprobante de Domicilio: <br>
+    <div class="file-input-wrapper">
+      <input type="file" name="comprobante_domicilio" id="comprobante_domicilio" style="display: none;">
+      <label for="comprobante_domicilio" class="btn-upload">Seleccionar Archivo</label>
+    </div>
+    
     <button type="button" onclick="mostrarParte(3)">Siguiente</button>
     <button type="button" onclick="regresarParte(1)">Regresar</button>
   </form>
@@ -43,14 +50,27 @@
 <div id="parte3" class="hidden">
   <h2>Paso 3: Documentos y Experiencia</h2>
   <form id="formParte3">
-    Cédula Profesional: <input type="file" name="cedula_profesional"><br>
-    Título Profesional: <input type="file" name="titulo_profesional"><br>
-    Carta de Antecedentes No Penales: <input type="file" name="carta_antecedentes_no_penales"><br>
+    Cédula Profesional:<br>
+    <div class="file-input-wrapper">
+      <input type="file" name="cedula_profesional" id="cedula_profesional" style="display: none;">
+      <label for="cedula_profesional" class="btn-upload">Seleccionar Archivo</label>
+    </div><br>
+    Título Profesional:<br>
+    <div class="file-input-wrapper">
+      <input type="file" name="titulo_profesional" id="titulo_profesional" style="display: none;">
+      <label for="titulo_profesional" class="btn-upload">Seleccionar Archivo</label>
+    </div><br>
+    Carta de Antecedentes No Penales:<br>
+    <div class="file-input-wrapper">
+      <input type="file" name="carta_antecedentes_no_penales" id="carta_antecedentes_no_penales" style="display: none;">
+      <label for="carta_antecedentes_no_penales" class="btn-upload">Seleccionar Archivo</label>
+    </div><br>
     Años de Experiencia: <input type="number" name="anios_experiencia" placeholder="Ingrese años de experiencia"><br>
     <button type="button" onclick="mostrarParte(4)">Siguiente</button>
     <button type="button" onclick="regresarParte(2)">Regresar</button>
   </form>
 </div>
+
 
 <div id="parte4" class="hidden">
   <h2>Paso 4: Confirmación</h2>
