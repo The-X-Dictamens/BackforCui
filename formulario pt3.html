@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Paso 3</title>
+</head>
+<body>
+    <h2>Formulario - Paso 3</h2>
+    <form id="formPagina3">
+        <div>
+            <label for="cedula">Cédula Profesional (PDF):</label>
+            <input type="file" id="cedula" name="cedula" required accept=".pdf">
+        </div>
+        <div>
+            <label for="titulo_profesional">Título Profesional (PDF):</label>
+            <input type="file" id="titulo_profesional" name="titulo_profesional" required accept=".pdf">
+        </div>
+        <div>
+            <label for="antecedentes_no_penales">Carta de Antecedentes No Penales (PDF):</label>
+            <input type="file" id="antecedentes_no_penales" name="antecedentes_no_penales" required accept=".pdf">
+        </div>
+        <div>
+            <label for="experiencia">Años de Experiencia:</label>
+            <input type="number" id="experiencia" name="experiencia" required min="0">
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        var formPagina3 = document.getElementById("formPagina3");
+
+        formPagina3.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var cedula = document.getElementById("cedula").files[0];
+            var titulo_profesional = document.getElementById("titulo_profesional").files[0];
+            var antecedentes_no_penales = document.getElementById("antecedentes_no_penales").files[0];
+            var experiencia = document.getElementById("experiencia").value;
+
+            localStorage.setItem("cedula", cedula);
+            localStorage.setItem("titulo_profesional", titulo_profesional);
+            localStorage.setItem("antecedentes_no_penales", antecedentes_no_penales);
+            localStorage.setItem("experiencia", experiencia);
+
+            var datosCompletos = {
+                nombre: localStorage.getItem("nombre"),
+                appat: localStorage.getItem("appat"),
+                apmat: localStorage.getItem("apmat"),
+                correo: localStorage.getItem("correo"),
+                pass: localStorage.getItem("pass"),
+                calle: localStorage.getItem("calle"),
+                colonia: localStorage.getItem("colonia"),
+                codigo_postal: localStorage.getItem("codigo_postal"),
+                numero_exterior: localStorage.getItem("numero_exterior"),
+                cedula: localStorage.getItem("cedula"),
+                titulo_profesional: localStorage.getItem("titulo_profesional"),
+                antecedentes_no_penales: localStorage.getItem("antecedentes_no_penales"),
+                experiencia: localStorage.getItem("experiencia")
+            };
+
+            console.log(datosCompletos);
+
+            // Lógica para enviar los datos al servidor o cualquier otro procesamiento necesario
+
+            localStorage.clear();
+
+            // Opcional: redirigir a una página de confirmación
+            window.location.href = "confirmacion.html";
+        });
+    </script>
+</body>
+</html>

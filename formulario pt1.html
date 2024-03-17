@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Paso 1</title>
+</head>
+<body>
+    <h2>Formulario - Paso 1</h2>
+    <form id="formPagina1">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="appat">Apellido Paterno:</label>
+            <input type="text" id="appat" name="appat" required>
+        </div>
+        <div>
+            <label for="apmat">Apellido Materno:</label>
+            <input type="text" id="apmat" name="apmat" required>
+        </div>
+        <div>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+        </div>
+        <div>
+            <label for="contra">Contraseña:</label>
+            <input type="password" id="pass" name="pass" required>
+        </div>
+        
+        <button type="submit">Siguiente</button>
+    </form>
+
+    <script>
+        var formPagina1 = document.getElementById("formPagina1");
+
+        formPagina1.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var nombre = document.getElementById("nombre").value;
+            var appat = document.getElementById("appat").value;
+            var apmat = document.getElementById("apmat").value;
+            var correo = document.getElementById("correo").value;
+            var contra = document.getElementById("pass").value;
+
+            localStorage.setItem("nombre", nombre);
+            localStorage.setItem("appat", appat);
+            localStorage.setItem("apmat", apmat);
+            localStorage.setItem("correo", correo);
+            localStorage.setItem("pass", contra);
+
+            window.location.href = "formulario pt2.html";
+        });
+    </script>
+</body>
+</html>
