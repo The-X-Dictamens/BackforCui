@@ -12,46 +12,6 @@ nav.navbar-green {
   right: 20px; /* Ajustar la posición del menú desplegable hacia la izquierda */
 }
 
-/* Estilos de las cartas */
-.card-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-.card-img {
-  color: #007bff;
-}
-
-.card-body p {
-  margin-bottom: 10px;
-}
-
-.card-body a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #007bff;
-}
-
-.card-body a:hover {
-  text-decoration: underline;
-}
-
-.card:hover .card-body {
-  display: none;
-}
-
-.card-details {
-  display: block;
-  text-align: center;
-}
 
 /* Estilos de las secciones */
 section {
@@ -101,20 +61,15 @@ section {
 /* Estilos para el footer */
 footer {
   border-top: 1px solid #dee2e6;
+  background-color: #44EBA3; /* Cambio del color de fondo */
+  padding: 30px 0; /* Añadir relleno al footer */
 }
 
-footer.bg-light {
-  background-color: #44EBA3; 
-}
 
-footer h5 {
-  color: #495057;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
 
 footer ul {
   padding: 0;
+  margin-bottom: 20px; /* Añadir espacio entre las listas */
 }
 
 footer ul li {
@@ -122,17 +77,13 @@ footer ul li {
   margin-bottom: 10px;
 }
 
-footer ul li a {
-  color: #6c757d;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+
 
 footer ul li a:hover {
   color: #007bff;
 }
 
 footer .col-md-6 {
-  margin-top: 20px;
+  margin-top: 0; /* Eliminar el margen superior */
 }
 
